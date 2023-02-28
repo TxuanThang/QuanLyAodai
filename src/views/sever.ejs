@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="/css/app.css">
+  <title>Shop Evolution</title>
+</head>
+
+<body>
+  <div class="topnav">
+    <a class="active" href="#home">Home</a>
+    <a href="#news">News</a>
+    <a href="#contact">Contact</a>
+    <a href="#about">About</a>
+  </div>
+  <h2 style="padding-left: 80px;">List Products</h2>
+  <div class="table center">
+    <button><a class="bt" href="./AddProducts">Thêm sản phẩm mới</a></button>
+    <br><br>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name Products</th>
+          <th>Image</th>
+          <th>Price</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% for(let i=0; i < dataProducts.length; i++) { %>
+          <tr>
+            <th>
+              <%= dataProducts[i].ProductID %>
+            </th>
+            <td>
+              <%= dataProducts[i].NameProduct %>
+            </td>
+            <td class="tag_img">
+              <img class="img" src="img/<%= dataProducts[i].Image %>">
+            </td>
+            <td>
+              <%= dataProducts[i].Price %>
+            </td>
+            <td class="action">
+              <button><a class="bt" href="/Products/detail/<%= dataProducts[i].ProductID %>">Detail</a></button>
+              <form method="get" class="buttomEdit" action="/EditProduct/<%= dataProducts[i].ProductID %>"><button type="submit">Edit</button></form>
+              <form method="post" class="buttomDelete" action="/deleteProduct"><input type="text" hidden value="<%= dataProducts[i].ProductID %>" name="ID"> <button type="submit">delete</button></form>
+            </td>
+          </tr>
+          <% } %>
+      </tbody>
+    </table>  
+</body>
+
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="/css/app.css">
+  <title>Add Products</title>
+</head>
+<body>
+  <div class="container center">
+    <form action="/UpdateProduct" method="POST">
+      <center>ADD NEW PRODUCTS</center>
+    <div class="row">
+      <div class="col-25">
+        <label for="fname">Name Product</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="fname" name="NameProduct" value="<%= data[0].NameProduct %>" placeholder="Name product..">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="Price">Price Product</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="Price" name="Price" value="<%= data[0].Price %>" placeholder="Price product..">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="Image">Image Product</label>
+      </div>
+      <div class="col-75">
+        <input type="file" name = "Image" value="<%= data[0].Image %>">
+      </div>
+    </div>
+    <div class="row">
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="subject">Description</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="subject" name="Description" value="<%= data[0].Description %>" placeholder="Write description for product.." style="height:100px">
+      </div>
+    </div>
+    <br>
+    <div class="row">
+        <input  type="text" value="<%= data[0].ProductID %>" name="id" hidden>
+      <button type="submit" class="btn-success">Success</button>
+    </div>
+    </form>
+  </div>
+</body>
+</html>
