@@ -1,0 +1,10 @@
+[
+{"type":"header","version":"5.2.0","comment":"Export to JSON plugin for PHPMyAdmin"},
+{"type":"database","name":"quan_ly_sp"},
+{"type":"table","name":"products","database":"quan_ly_sp","data":
+[
+{"ProductID":"3","NameProduct":"Aó dài mẫu 2","Image":"Aodai1.jpg","Price":"1.500.000 VNĐ","Description":"Mẫu áo đặt biệt"},
+{"ProductID":"5","NameProduct":"Áo dài","Image":"Aodai1.jpg","Price":"500.000NVĐ","Description":"Đây là áo mới"}
+]
+}
+]
