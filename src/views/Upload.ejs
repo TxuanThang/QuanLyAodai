@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/css/app.css">
+    <title>Shop Evolution</title>
+</head>
+
+<body>
+    <div class="topnav">
+        <a href="/">Home</a>
+        <a class="active" href="/uploadfile">uploadfile</a>
+    </div>
+    <div class="container center">
+        <!--  enctype="multipart/form-data" dùng để cho HTML hiểu được đang upload file và lưu vào trong server -->
+        <form action="/Uploadsingle" method="POST" enctype="multipart/form-data">
+            <center>UPLOAD FILE</center>
+            <div class="container">
+                <div class="containerv2">
+                    <h4>Upload Single File</h4>
+                    <div>
+                        <label for="">Image:</label>
+                        <input type="file" name="upload">
+                    </div>
+                    <div>
+                        <button type="submit" id="upload">Upload</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>
