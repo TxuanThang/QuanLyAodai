@@ -40,27 +40,50 @@ export const Uploadfile = async (req, res) => {
     return res.render('Upload.ejs')
 }
 
-const upload = multer().single('upload');  // upload biết đang dùng multer và nói cho nó 1 cái tên
+// const upload = multer().single('upload');  // upload biết đang dùng multer và nói cho nó 1 cái tên
 
+// const upload_mutiple = multer().array('uploads', 4);
 export const Uploadsingle = async (req, res) => {
     // 'upload' nó sẽ map với tên của ô input ở uploadfile
-    upload(req, res, function(err) {
+  //  upload(req, res, function(err) {
         // req.file dùng để chưa thông tin file đã tải lên
         // req.body chưa thông tin bất kì của văn nếu có
 
         if (req.fileValidationError) {
-            return res.send(req.fileValidationError);
+            return res.send("Chỉ được upload File ảnh <a href='./uploadfile'>Upload another image</a>");
         }
         // nếu không gửi file nó sẽ báo lỗi
         else if (!req.file) {
             return res.send('Please select an image to upload');
         }
         // nếu có lỗi của thư viện multer thì nó sẽ gửi luôn lỗi của thư viện
-        else if (err instanceof multer.MulterError) {
-            return res.send(err);
-        }
+        // else if (err instanceof multer.MulterError) {
+        //     return res.send(err);
+        // }
         res.send(`You have uploaded this image: <hr/><img src="/img/${req.file.filename}" width="100"><hr /><a href="./uploadfile">Upload another image</a>`);
-    });
+  //  });
 }
-export default { gethome, getDetailPage, AddProducts, CreateProduct,DeleteProducts, EditProduct, UpdateProduct, Uploadfile, Uploadsingle };
+
+export const Uploadmutiple = async (req, res) =>{
+   // upload_mutiple(req, res, function(err) {
+        if (req.fileValidationError) {
+            return res.send(req.fileValidationError);
+        }
+        if (req.fileValidationError) {
+            return res.send("Chỉ được upload File ảnh <a href='./uploadfile'>Upload another image</a>");
+        }
+        let result = "You have uploaded these images: <hr />";
+        const files = req.files;
+        let index, len;
+        
+        // Loop through all the uploaded images and display them on frontend
+        for (index = 0, len = files.length; index < len; ++index) {
+            result += `<img src="/img/${files[index].filename}" width="100" style="margin-right: 20px;">`;
+        }
+        result += '<hr/><a href="./uploadfile">Upload more images</a>';
+        res.send(result);
+  //  });
+
+}
+export default { gethome, getDetailPage, AddProducts, CreateProduct,DeleteProducts, EditProduct, UpdateProduct, Uploadfile, Uploadsingle, Uploadmutiple };
 // 
